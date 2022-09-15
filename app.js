@@ -1,30 +1,39 @@
 const windowInnerHeight = window.innerHeight;
 const windowInnerWidth = window.innerWidth;
 
+const outsideBox = document.querySelector(".outside-box");
 const box = document.querySelector(".box");
 
 document.addEventListener("scroll", () => {
-  const boxWidth = box.getBoundingClientRect().width;
-  const boxHeight = box.getBoundingClientRect().height;
-  const boxTop = box.getBoundingClientRect().top;
-  const boxBottom = box.getBoundingClientRect().bottom;
-  const boxLeft = box.getBoundingClientRect().left;
-  const boxRight = box.getBoundingClientRect().right;
+  const outsideBoxWidth = outsideBox.getBoundingClientRect().width;
+  const outsideBoxHeight = outsideBox.getBoundingClientRect().height;
+  const outsideBoxTop = outsideBox.getBoundingClientRect().top;
+  const outsideBoxBottom = outsideBox.getBoundingClientRect().bottom;
+  const outsideBoxLeft = outsideBox.getBoundingClientRect().left;
+  const outsideBoxRight = outsideBox.getBoundingClientRect().right;
 
-  console.log("boxTop:", boxTop, "boxBottom:", boxBottom);
+  console.log(
+    "outsideBoxTop:",
+    outsideBoxTop,
+    "outsideBoxBottom:",
+    outsideBoxBottom
+  );
   console.log(
     "windowheight:",
     windowInnerHeight
     // "windowWidth:",
     // windowInnerWidth
   );
-  if (boxTop < windowInnerHeight && boxBottom < windowInnerHeight) {
+  if (
+    outsideBoxTop < windowInnerHeight &&
+    outsideBoxBottom < windowInnerHeight
+  ) {
     box.classList.add("animate");
   }
-  if (boxTop > windowInnerHeight) {
+  if (outsideBoxTop > windowInnerHeight) {
     box.classList.remove("animate");
   }
-  if (boxBottom < 0) {
+  if (outsideBoxBottom < 0) {
     box.classList.remove("animate");
   }
 });

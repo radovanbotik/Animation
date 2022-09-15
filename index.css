@@ -39,7 +39,12 @@ section:nth-child(2) {
   justify-content: center;
   align-items: center;
 }
-
+.outside-box {
+  width: 5em;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: var(--black);
+}
 .box {
   width: 5em;
   aspect-ratio: 1;
@@ -47,11 +52,10 @@ section:nth-child(2) {
   border: 2px solid white;
 
   text-align: center;
-  opacity: 0;
   transition: all 500ms ease-in;
+  transform: translateY(-200%);
 }
 
 .animate {
-  transform: translateY(-200%) scale(2);
-  opacity: 1;
+  transform: translateY(0%);
 }
